@@ -1,0 +1,11 @@
+{
+  "type": "record",
+  "name": "VectorizationMessage",
+  "namespace": "com.stodo.projectchaos.kafka",
+  "fields": [
+    {
+      "name": "attachmentId",
+      "type": { "type": "string", "logicalType": "uuid" }
+    }
+  ]
+}
