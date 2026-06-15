@@ -1,0 +1,73 @@
+{
+  "type": "record",
+  "name": "TaskUpdatedMessage",
+  "namespace": "com.stodo.projectchaos.kafka",
+  "fields": [
+    {
+      "name": "taskId",
+      "type": { "type": "string", "logicalType": "uuid" }
+    },
+    {
+      "name": "projectId",
+      "type": { "type": "string", "logicalType": "uuid" }
+    },
+    {
+      "name": "eventType",
+      "type": {"type": "enum", "name": "EventType", "symbols": ["UPSERT", "DELETE"]}
+    },
+    {
+      "name": "title",
+      "type": ["null", "string"],
+      "default": null
+    },
+    {
+      "name": "description",
+      "type": ["null", "string"],
+      "default": null
+    },
+    {
+      "name": "stage",
+      "type": ["null", "string"],
+      "default": null
+    },
+    {
+      "name": "assigneeId",
+      "type": ["null", { "type": "string", "logicalType": "uuid" }],
+      "default": null
+    },
+    {
+      "name": "priorityId",
+      "type": ["null", { "type": "string", "logicalType": "uuid" }],
+      "default": null
+    },
+    {
+      "name": "priorityName",
+      "type": ["null", "string"],
+      "default": null
+    },
+    {
+      "name": "labels",
+      "type": {
+        "type": "array",
+        "items": {
+          "type": "record",
+          "name": "TaskLabel",
+          "fields": [
+            { "name": "labelId", "type": { "type": "string", "logicalType":
+            "uuid" } },
+            { "name": "labelName", "type": "string" }
+          ]
+        }
+      },
+      "default": []
+    },
+    {
+      "name": "createdDate",
+      "type": {"type": "long", "logicalType": "timestamp-millis"}
+    },
+    {
+      "name": "lastModifiedDate",
+      "type": {"type": "long", "logicalType": "timestamp-millis"}
+    }
+  ]
+}
